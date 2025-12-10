@@ -1,0 +1,24 @@
+﻿@model PortfolyoSitesi.Data.Skill
+
+@{
+    ViewData["Title"] = "UpdateSkill";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Update Skill</h1>
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.SkillId)
+
+    <label>Skill Name</label>
+    <input type="text" class="form-control" name="SkillName" value="@Model.SkillName" />
+
+    <label>Skill Percentage</label>
+    <input type="text" class="form-control" name="SkillPercentage" value="@Model.SkillPercentage" />
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Update</button>
+
+</form>

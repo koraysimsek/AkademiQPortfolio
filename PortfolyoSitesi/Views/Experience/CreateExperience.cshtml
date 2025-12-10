@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "CreateExperience";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Add New Experience</h1>
+
+<form method="post">
+
+    <label>Title</label>
+    <input type="text" class="form-control" name="Title" />
+
+    <label>Company Name</label>
+    <input type="text" class="form-control" name="CompanyName" />
+
+    <label>Start Date</label>
+    <input type="text" class="form-control" name="StartDate" />
+
+    <label>End Date</label>
+    <input type="text" class="form-control" name="EndDate" />
+
+    <label>Description</label>
+    <input type="text" class="form-control" name="Description" />
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Add</button>
+
+</form>

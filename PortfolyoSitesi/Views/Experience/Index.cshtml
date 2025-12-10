@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Experience</h1>
+
+<div class="container">
+    <table class="table table-bordered">
+        
+        <thead>
+
+            <tr>
+                <td>ExperienceID</td>
+                <td>Title</td>
+                <td>Company Name</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+                <td>Description</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>3</td>
+                <td>Developer</td>
+                <td>NCT</td>
+                <td>2024 October</td>
+                <td>2024 December</td>
+                <td>Nocode developer</td>
+                <td><a href="/Experience/UpdateExperience/" class="btn btn-success">Update</a></td>
+                <td><a href="/Experience/DeleteExperience/" class="btn btn-danger">Delete</a></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <a href="/Experience/CreateExperience/" class="btn btn-secondary">Add New Experience</a>
+</div>
