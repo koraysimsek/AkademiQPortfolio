@@ -3,58 +3,41 @@
     Layout = null;
 }
 
-<nav id="sidebar">
-    <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-    </div>
-
-    <ul class="list-unstyled components">
-        <p>Dummy Heading</p>
-        <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="#">Home 1</a>
-                </li>
-                <li>
-                    <a href="#">Home 2</a>
-                </li>
-                <li>
-                    <a href="#">Home 3</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Portfolio</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
-    </ul>
-
-    <ul class="list-unstyled CTAs">
-        <li>
-            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-        </li>
-        <li>
-            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-        </li>
-    </ul>
+<nav class="flex flex-col gap-2">
+	<a class="flex items-center gap-3 rounded-full bg-primary px-4 py-3 text-white shadow-lg shadow-primary/20 transition-all hover:brightness-110" href="/Dashboard/">
+		<span class="material-symbols-outlined icon-fill">dashboard</span>
+		<span class="text-sm font-semibold">Dashboard</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/About/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">person</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">About</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Contact/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">mail</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Contact</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Experience/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">history_edu</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Experience</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/News/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">newspaper</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">News</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Project/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">folder_open</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Projects</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Services/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Services</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Skill/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">code</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Skill</span>
+	</a>
+	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Testimonial/Index/">
+		<span class="material-symbols-outlined group-hover:text-primary transition-colors">star</span>
+		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Testimonial</span>
+	</a>
 </nav>
