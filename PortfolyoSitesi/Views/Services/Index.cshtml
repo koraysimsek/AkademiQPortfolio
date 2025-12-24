@@ -1,0 +1,43 @@
+﻿@model List<PortfolyoSitesi.Data.Service>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Services</h1>
+
+<div class="container">
+	<table class="table table-bordered">
+
+		<thead>
+
+			<tr>
+				<td>ServiceID</td>
+				<td>Title</td>
+				<td>Description</td>
+				<td>Icon URL</td>
+				<td>Update</td>
+				<td>Delete</td>
+			</tr>
+
+		</thead>
+
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>#@item.ServiceId</td>
+					<td>@item.Title</td>
+					<td>@item.Description</td>
+					<td>@item.IconUrl</td>
+					<td><a href="/Services/UpdateService/@item.ServiceId" class="btn btn-success">Update</a></td>
+					<td><a href="/Services/DeleteService/@item.ServiceId" class="btn btn-danger">Delete</a></td>
+				</tr>
+			}
+
+		</tbody>
+
+	</table>
+	<a href="/Services/CreateService/" class="btn btn-secondary">Add New Service</a>
+</div>

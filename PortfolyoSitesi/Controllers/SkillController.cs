@@ -5,7 +5,6 @@ namespace AkademiQPortfolyoSitesi.Controllers
 {
     public class SkillController : Controller
     {
-
         private readonly portfolyodbContext _portfolyodbContext;
 
         public SkillController(portfolyodbContext portfolyodbContext)
@@ -19,9 +18,19 @@ namespace AkademiQPortfolyoSitesi.Controllers
             return View(values);
         }
 
+        [HttpGet]
         public IActionResult CreateSkill()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateSkill(Skill skill)
+        {
+            _portfolyodbContext.Skills.Add(skill);
+            _portfolyodbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "CreateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Add New Service</h1>
+
+<form method="post">
+
+    <label>Title</label>
+    <input type="text" class="form-control" name="Title" />
+
+    <label>Description</label>
+    <input type="text" class="form-control" name="Description" />
+
+    <label>Icon URL</label>
+    <input type="text" class="form-control" name="IconURL" />
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Add</button>
+
+</form>
