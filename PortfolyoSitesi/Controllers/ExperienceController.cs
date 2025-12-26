@@ -1,28 +1,64 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PortfolyoSitesi.Data;
 
 namespace AkademiQPortfolyoSitesi.Controllers
 {
     public class ExperienceController : Controller
     {
-        public IActionResult Index()
+        private readonly portfolyodbContext _portfolyodbContext;
+
+        public ExperienceController(portfolyodbContext portfolyodbContext)
         {
-            return View();
+            _portfolyodbContext = portfolyodbContext;
         }
 
+        public IActionResult Index()
+        {
+            var values = _portfolyodbContext.Experiences.ToList();
+            return View(values);
+        }
+
+        [HttpGet]
         public IActionResult CreateExperience()
         {
             return View();
         }
 
-        public IActionResult UpdateExperience()
+        [HttpPost]
+        public IActionResult CreateExperience(Experience experience)
         {
-            return View();
+            _portfolyodbContext.Experiences.Add(experience);
+            _portfolyodbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateExperience(int id)
+        {
+            var values = _portfolyodbContext.Experiences.Find(id);
+
+            return View(values);
         }
 
         [HttpPost]
-        public IActionResult DeleteExperience()
+        public IActionResult UpdateExperience(Experience experience)
         {
-            return View();
+            _portfolyodbContext.Experiences.Update(experience);
+            _portfolyodbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteExperience(int id)
+        {
+            var values = _portfolyodbContext.Experiences.Find(id);
+
+            _portfolyodbContext.Experiences.Remove(values);
+            _portfolyodbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿
+﻿@model PortfolyoSitesi.Data.Project
+
 @{
-    ViewData["Title"] = "CreateExperience";
+    ViewData["Title"] = "CreateProject";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -13,15 +14,29 @@
 
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-extrabold text-gray-800">
-                Add New Experience
-            </h1>
+            <h1 class="text-3xl font-extrabold text-gray-800">Add New Project</h1>
             <p class="text-gray-500 mt-1">
-                Enter your professional experience details
+                Create a new project and assign a category
             </p>
         </div>
 
         <form method="post" class="space-y-6">
+
+            <!-- Project Name -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Project Name
+                </label>
+                <input type="text"
+                       name="ProjectName"
+                       placeholder="e.g. Portfolio Website"
+                       required
+                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                              text-gray-900 bg-white
+                              focus:ring-2 focus:ring-indigo-500
+                              focus:border-indigo-500
+                              outline-none transition" />
+            </div>
 
             <!-- Title -->
             <div>
@@ -30,76 +45,51 @@
                 </label>
                 <input type="text"
                        name="Title"
+                       placeholder="Short project description"
                        required
-                       placeholder="e.g. Software Developer"
                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
+                              text-gray-900 bg-white
                               focus:ring-2 focus:ring-indigo-500
                               focus:border-indigo-500
                               outline-none transition" />
             </div>
 
-            <!-- Company Name -->
+            <!-- Image URL -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Company Name
+                    Image URL
                 </label>
                 <input type="text"
-                       name="CompanyName"
-                       required
-                       placeholder="e.g. Google"
+                       name="ImageUrl"
+                       placeholder="https://example.com/image.jpg"
                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
+                              text-gray-900 bg-white
                               focus:ring-2 focus:ring-indigo-500
                               focus:border-indigo-500
                               outline-none transition" />
             </div>
 
-            <!-- Start Date -->
+            <!-- Category ComboBox -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Start Date
+                    Project's Category
                 </label>
-                <input type="text"
-                       name="StartDate"
-                       required
-                       placeholder="e.g. October 2024"
-                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
-                              focus:ring-2 focus:ring-indigo-500
-                              focus:border-indigo-500
-                              outline-none transition" />
-            </div>
 
-            <!-- End Date -->
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    End Date
-                </label>
-                <input type="text"
-                       name="EndDate"
-                       placeholder="e.g. December 2024 or Present"
-                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
-                              focus:ring-2 focus:ring-indigo-500
-                              focus:border-indigo-500
-                              outline-none transition" />
-            </div>
+                <select name="CategoryId"
+                        required
+                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                               text-gray-900 bg-white
+                               focus:ring-2 focus:ring-indigo-500
+                               focus:border-indigo-500
+                               outline-none transition">
 
-            <!-- Description -->
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Description
-                </label>
-                <textarea name="Description"
-                          rows="4"
-                          required
-                          placeholder="Brief description of your role"
-                          class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                                 text-gray-900 resize-none
-                                 focus:ring-2 focus:ring-indigo-500
-                                 focus:border-indigo-500
-                                 outline-none transition"></textarea>
+                    <option value="" disabled selected>Choose a Category</option>
+
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
             </div>
 
             <!-- Button -->
@@ -110,13 +100,12 @@
                                text-white font-semibold py-3 rounded-lg
                                transition shadow-lg shadow-indigo-200">
 
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                         viewBox="0 0 24 24">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M12 4v16m8-8H4" />
                     </svg>
 
-                    Add Experience
+                    Add Project
                 </button>
             </div>
 
