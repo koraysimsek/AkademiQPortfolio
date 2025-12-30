@@ -1,8 +1,145 @@
-﻿
+﻿@model List<PortfolyoSitesi.Data.About>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>About</h1>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="p-6 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">
+                    About List
+                </h1>
+                <p class="text-gray-500 mt-1">
+                    From this page, you can manage, edit, or delete all about records in the system.
+                </p>
+            </div>
+
+            <a href="/About/CreateAbout/"
+               class="inline-flex items-center px-5 py-2.5
+                      bg-indigo-600 hover:bg-indigo-700
+                      text-white text-sm font-medium rounded-lg
+                      transition-all duration-200
+                      shadow-lg shadow-indigo-200">
+
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+
+                Add New About
+            </a>
+        </div>
+
+        <!-- Table -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+
+                    <thead>
+                        <tr class="bg-gray-50/50 border-b border-gray-100">
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">ID</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Name Surname</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Title</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">University</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Section</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Years</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Image</th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase text-right">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-gray-50">
+                        @foreach (var item in Model)
+                        {
+                            <tr class="hover:bg-blue-50/30 transition-colors duration-150 group">
+
+                                <td class="px-6 py-4 text-sm font-medium text-gray-400 group-hover:text-indigo-600">
+                                    #@item.AboutId
+                                </td>
+
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-700">
+                                    @item.NameSurname
+                                </td>
+
+                                <td class="px-6 py-4 text-sm text-gray-600">
+                                    @item.Title
+                                </td>
+
+                                <td class="px-6 py-4 text-sm text-gray-600">
+                                    @item.University
+                                </td>
+
+                                <td class="px-6 py-4 text-sm text-gray-600">
+                                    @item.Section
+                                </td>
+
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    @item.StartYear - @item.EndYear
+                                </td>
+
+                                <td class="px-6 py-4">
+                                    <img src="@item.ImageUrl"
+                                         class="w-10 h-10 rounded-full object-cover border"
+                                         alt="Profile Image" />
+                                </td>
+
+                                <td class="px-6 py-4 text-right text-sm font-medium">
+                                    <div class="flex justify-end space-x-2">
+
+                                        <a href="/About/UpdateAbout/@item.AboutId"
+                                           class="inline-flex items-center px-3 py-1.5
+                                                  bg-amber-50 text-amber-600
+                                                  hover:bg-amber-100
+                                                  rounded-md transition-colors">
+
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M11 5H6a2 2 0 00-2 2v11
+                                                         a2 2 0 002 2h11a2 2 0 002-2v-5
+                                                         m-1.414-9.414a2 2 0 112.828 2.828
+                                                         L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                            Update
+                                        </a>
+
+                                        <a href="/About/DeleteAbout/@item.AboutId"
+                                           onclick="return confirm('This action cannot be undone. Are you sure?')"
+                                           class="inline-flex items-center px-3 py-1.5
+                                                  bg-red-50 text-red-600
+                                                  hover:bg-red-100
+                                                  rounded-md transition-colors">
+
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor"
+                                                 viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862
+                                                         a2 2 0 01-1.995-1.858L5 7
+                                                         m5 4v6m4-6v6
+                                                         m1-10V4a1 1 0 00-1-1h-4
+                                                         a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
+                                            Delete
+                                        </a>
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
 

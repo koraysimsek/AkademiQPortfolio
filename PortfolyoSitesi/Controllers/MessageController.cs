@@ -1,59 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortfolyoSitesi.Data;
 
-namespace AkademiQPortfolyoSitesi.Controllers
+namespace PortfolyoSitesi.Controllers
 {
-    public class ContactController : Controller
+    public class MessageController : Controller
     {
         private readonly portfolyodbContext _portfolyodbContext;
 
-        public ContactController(portfolyodbContext portfolyodbContext)
+        public MessageController(portfolyodbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }
         public IActionResult Index()
         {
-            var values = _portfolyodbContext.Contacts.ToList();
+            var values = _portfolyodbContext.Messages.ToList();
             return View(values);
         }
 
         [HttpGet]
-        public IActionResult CreateContact()
+        public IActionResult CreateMessage()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateContact(Contact contact)
+        public IActionResult CreateMessage(Message message)
         {
-            _portfolyodbContext.Contacts.Add(contact);
+            _portfolyodbContext.Messages.Add(message);
             _portfolyodbContext.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult UpdateContact(int id)
+        public IActionResult UpdateMessage(int id)
         {
-            var values = _portfolyodbContext.Contacts.Find(id);
+            var values = _portfolyodbContext.Messages.Find(id);
 
             return View(values);
         }
 
         [HttpPost]
-        public IActionResult UpdateContact(Contact contact)
+        public IActionResult UpdateMessage(Message message)
         {
-            _portfolyodbContext.Contacts.Update(contact);
+            _portfolyodbContext.Messages.Update(message);
             _portfolyodbContext.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        public IActionResult DeleteContact(int id)
+        public IActionResult DeleteMessage(int id)
         {
-            var values = _portfolyodbContext.Contacts.Find(id);
+            var values = _portfolyodbContext.Messages.Find(id);
 
-            _portfolyodbContext.Contacts.Remove(values);
+            _portfolyodbContext.Messages.Remove(values);
             _portfolyodbContext.SaveChanges();
 
             return RedirectToAction("Index");

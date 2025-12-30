@@ -1,7 +1,6 @@
-﻿@model PortfolyoSitesi.Data.Service
-
+﻿
 @{
-    ViewData["Title"] = "UpdateService";
+    ViewData["Title"] = "UpdateTestimonial";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -15,17 +14,30 @@
         <!-- Header -->
         <div class="text-center mb-8">
             <h1 class="text-3xl font-extrabold text-gray-800">
-                Update Service
+                Update Testimonial
             </h1>
             <p class="text-gray-500 mt-1">
-                Update your service information
+                Update testimonial information
             </p>
         </div>
 
         <form method="post" class="space-y-6">
 
-            <!-- ServiceId -->
-            @Html.HiddenFor(x => x.ServiceId)
+            <!-- Testimonial Name -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Testimonial Name
+                </label>
+                <input type="text"
+                       name="TestimonialName"
+                       value="@Model.TestimonialName"
+                       required
+                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                              text-black
+                              focus:ring-2 focus:ring-indigo-500
+                              focus:border-indigo-500
+                              outline-none transition" />
+            </div>
 
             <!-- Title -->
             <div>
@@ -37,7 +49,38 @@
                        value="@Model.Title"
                        required
                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
+                              text-black
+                              focus:ring-2 focus:ring-indigo-500
+                              focus:border-indigo-500
+                              outline-none transition" />
+            </div>
+
+            <!-- Company -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Company
+                </label>
+                <input type="text"
+                       name="Company"
+                       value="@Model.Company"
+                       required
+                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                              text-black
+                              focus:ring-2 focus:ring-indigo-500
+                              focus:border-indigo-500
+                              outline-none transition" />
+            </div>
+
+            <!-- Image URL -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Image URL
+                </label>
+                <input type="text"
+                       name="ImageUrl"
+                       value="@Model.ImageUrl"
+                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                              text-black
                               focus:ring-2 focus:ring-indigo-500
                               focus:border-indigo-500
                               outline-none transition" />
@@ -52,27 +95,10 @@
                           rows="4"
                           required
                           class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                                 text-gray-900 resize-none
+                                 text-black resize-none
                                  focus:ring-2 focus:ring-indigo-500
                                  focus:border-indigo-500
                                  outline-none transition">@Model.Description</textarea>
-            </div>
-
-            <!-- Icon Url -->
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Icon Url
-                </label>
-                <input type="text"
-                       name="IconUrl"
-                       value="@Model.IconUrl"
-                       placeholder="e.g. fa-solid fa-code"
-                       required
-                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
-                              text-gray-900
-                              focus:ring-2 focus:ring-indigo-500
-                              focus:border-indigo-500
-                              outline-none transition" />
             </div>
 
             <!-- Button -->
@@ -89,7 +115,7 @@
                               d="M5 13l4 4L19 7" />
                     </svg>
 
-                    Update Service
+                    Update Testimonial
                 </button>
             </div>
 
@@ -97,6 +123,5 @@
     </div>
 
 </div>
-
 
 

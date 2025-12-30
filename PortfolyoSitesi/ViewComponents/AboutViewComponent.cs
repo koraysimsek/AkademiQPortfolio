@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PortfolyoSitesi.Data;
 
 namespace AkademiQPortfolyoSitesi.ViewComponents
 {
     public class AboutViewComponent : ViewComponent
     {
+        private readonly portfolyodbContext _portfolyodbContext;
+
+        public AboutViewComponent(portfolyodbContext portfolyodbContext)
+        {
+            _portfolyodbContext = portfolyodbContext;
+        }
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = _portfolyodbContext.Abouts.ToList();
+            return View(values);
         }
     }
 }
