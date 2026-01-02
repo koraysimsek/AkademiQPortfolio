@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortfolyoSitesi.Data;
 
-namespace AkademiQPortfolyoSitesi.ViewComponents
+namespace PortfolyoSitesi.ViewComponents
 {
     public class AboutViewComponent : ViewComponent
     {
@@ -11,6 +11,7 @@ namespace AkademiQPortfolyoSitesi.ViewComponents
         {
             _portfolyodbContext = portfolyodbContext;
         }
+
         public IViewComponentResult Invoke()
         {
             var values = _portfolyodbContext.Abouts.ToList();

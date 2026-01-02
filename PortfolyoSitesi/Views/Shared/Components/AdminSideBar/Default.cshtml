@@ -1,39 +1,123 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+	Layout = null;
+	var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
 }
 
 <nav class="flex flex-col gap-2">
-	<a class="flex items-center gap-3 rounded-full bg-primary px-4 py-3 text-white shadow-lg shadow-primary/20 transition-all hover:brightness-110" href="/Dashboard/">
-		<span class="material-symbols-outlined icon-fill">dashboard</span>
+	<a href="/Dashboard/"
+	   class="flex items-center gap-3 rounded-full px-4 py-3 transition-all
+       @(currentController=="Dashboard"
+       ? "bg-primary text-white shadow-lg shadow-primary/20"
+       : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined">dashboard</span>
 		<span class="text-sm font-semibold">Dashboard</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/About/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">person</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">About</span>
+
+	<a href="/About/Index/"
+	   class="flex items-center gap-3 rounded-full px-4 py-3 transition-all
+       @(currentController=="About"
+       ? "bg-primary text-white shadow-lg shadow-primary/20"
+       : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined">person</span>
+		<span class="text-sm font-medium">About</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Contact/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">mail</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Contact</span>
+
+	<a href="/Contact/Index/"
+	   class="flex items-center gap-3 rounded-full px-4 py-3 transition-all
+       @(currentController=="Contact"
+       ? "bg-primary text-white shadow-lg shadow-primary/20"
+       : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined">mail</span>
+		<span class="text-sm font-medium">Contact</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Experience/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">history_edu</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Experience</span>
+	<a href="/Category/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Category"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Category" ? "text-white" : "group-hover:text-primary")">
+			category
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Category" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Category
+		</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Project/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">folder_open</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Projects</span>
+
+	<a href="/Experience/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Experience"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Experience" ? "text-white" : "group-hover:text-primary")">
+			history_edu
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Experience" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Experience
+		</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Services/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Services</span>
+
+	<a href="/Project/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Project"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Project" ? "text-white" : "group-hover:text-primary")">
+			folder_open
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Project" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Projects
+		</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Skill/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">code</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Skill</span>
+
+	<a href="/Services/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Services"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Services" ? "text-white" : "group-hover:text-primary")">
+			settings
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Services" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Services
+		</span>
 	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Testimonial/Index/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">star</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Testimonial</span>
+
+	<a href="/Skill/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Skill"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Skill" ? "text-white" : "group-hover:text-primary")">
+			code
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Skill" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Skill
+		</span>
 	</a>
+
+	<a href="/Testimonial/Index/"
+	   class="group flex items-center gap-3 rounded-full px-4 py-3 transition-all
+   @(currentController=="Testimonial"
+   ? "bg-primary text-white shadow-lg shadow-primary/20"
+   : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")">
+		<span class="material-symbols-outlined
+          @(currentController=="Testimonial" ? "text-white" : "group-hover:text-primary")">
+			star
+		</span>
+		<span class="text-sm font-medium
+          @(currentController=="Testimonial" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">
+			Testimonial
+		</span>
+	</a>
+
 </nav>

@@ -1,0 +1,68 @@
+﻿@model PortfolyoSitesi.Data.Category
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-screen flex items-center justify-center
+            bg-gradient-to-br from-indigo-50 to-blue-100 p-6">
+
+    <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl p-8">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-gray-800">
+                Update Category
+            </h1>
+            <p class="text-gray-500 mt-1">
+                Update category information
+            </p>
+        </div>
+
+        <form method="post" class="space-y-6">
+
+            @Html.HiddenFor(x => x.CategoryId)
+
+            <!-- Category Name -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Category Name
+                </label>
+                <input type="text"
+                       name="CategoryName"
+                       value="@Model.CategoryName"
+                       required
+                       class="w-full px-4 py-2.5 rounded-lg border border-gray-300
+                              text-gray-900
+                              focus:ring-2 focus:ring-indigo-500
+                              focus:border-indigo-500
+                              outline-none transition" />
+            </div>
+
+            <!-- Button -->
+            <div class="pt-4">
+                <button type="submit"
+                        class="w-full flex items-center justify-center gap-2
+                               bg-emerald-600 hover:bg-emerald-700
+                               text-white font-semibold py-3 rounded-lg
+                               transition shadow-lg shadow-emerald-200">
+
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M5 13l4 4L19 7" />
+                    </svg>
+
+                    Update Category
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+

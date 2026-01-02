@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AkademiQPortfolyoSitesi.ViewComponents
+namespace PortfolyoSitesi.ViewComponents
 {
     public class AdminSideBarViewComponent : ViewComponent
     {

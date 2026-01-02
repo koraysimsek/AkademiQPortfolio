@@ -1,6 +1,7 @@
-﻿
+﻿@model List<PortfolyoSitesi.Data.Contact>
+
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <section id="contact">
@@ -13,7 +14,7 @@
 							<h2 class="mb-0">Contact</h2>
 							<span class="title-letter">C</span>
 						</div>
-						<p>Want to say hello? Want to know more about me? Give me a call or drop me an email and I will get back to you as soon as I can.</p>
+						<p>@Model[0].Description</p>
 					</div>
 				</div>
 				<div class="row mb-8">
@@ -25,8 +26,7 @@
 								</div>
 							</div>
 							<p class="text-center">
-								(0091) 1111 1234567<br />
-								(084) 2222 1234567
+								@Model[0].Phone
 							</p>
 						</div>
 					</div>
@@ -39,8 +39,7 @@
 								</div>
 							</div>
 							<p class="text-center">
-								69 Halsey St, New York, Ny 10002,<br />
-								United States
+								@Model[0].Address
 							</p>
 						</div>
 					</div>
@@ -53,8 +52,7 @@
 								</div>
 							</div>
 							<p class="text-center">
-								<a href="mailto:support@example.com" class="text-dark">support@example.com</a><br />
-								<a href="mailto:hello@example.com" class="text-dark">hello@example.com</a>
+								<a href="mailto:support@example.com" class="text-dark">@Model[0].Email</a>
 							</p>
 						</div>
 					</div>

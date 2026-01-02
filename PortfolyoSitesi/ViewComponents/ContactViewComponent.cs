@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortfolyoSitesi.Data;
 
-namespace AkademiQPortfolyoSitesi.ViewComponents
+namespace PortfolyoSitesi.ViewComponents
 {
     public class ContactViewComponent : ViewComponent
     {
