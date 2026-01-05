@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<portfolyodbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));//Veri tabaný baðlantýsý için gereken kod satýrý
+builder.Services.AddDbContext<PortfolyoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));//Veri tabaný baðlantýsý için gereken kod satýrý
 
 var app = builder.Build();
 

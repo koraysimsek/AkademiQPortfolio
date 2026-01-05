@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PortfolyoSitesi.Data
 {
-    public partial class portfolyodbContext : DbContext
+    public partial class PortfolyoDbContext : DbContext
     {
-        public portfolyodbContext()
+        public PortfolyoDbContext()
         {
         }
 
-        public portfolyodbContext(DbContextOptions<portfolyodbContext> options)
+        public PortfolyoDbContext(DbContextOptions<PortfolyoDbContext> options)
             : base(options)
         {
         }
@@ -21,7 +21,6 @@ namespace PortfolyoSitesi.Data
         public virtual DbSet<Contact> Contacts { get; set; } = null!;
         public virtual DbSet<Experience> Experiences { get; set; } = null!;
         public virtual DbSet<Message> Messages { get; set; } = null!;
-        public virtual DbSet<News> News { get; set; } = null!;
         public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Service> Services { get; set; } = null!;
         public virtual DbSet<Skill> Skills { get; set; } = null!;
@@ -33,7 +32,7 @@ namespace PortfolyoSitesi.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=KORAY;Database=portfolyodb;Trusted_Connection=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=KORAY;Database=portfolyodb;Trusted_Connection=True;");
             }
         }
 
@@ -122,17 +121,6 @@ namespace PortfolyoSitesi.Data
                 entity.Property(e => e.Subject).HasMaxLength(250);
             });
 
-            modelBuilder.Entity<News>(entity =>
-            {
-                entity.Property(e => e.NewsId).HasColumnName("NewsID");
-
-                entity.Property(e => e.CreatedDate).HasMaxLength(50);
-
-                entity.Property(e => e.Description).HasMaxLength(500);
-
-                entity.Property(e => e.Title).HasMaxLength(200);
-            });
-
             modelBuilder.Entity<Project>(entity =>
             {
                 entity.ToTable("Project");
@@ -144,6 +132,8 @@ namespace PortfolyoSitesi.Data
                 entity.Property(e => e.ImageUrl)
                     .HasMaxLength(500)
                     .HasColumnName("ImageURL");
+
+                entity.Property(e => e.ProjectLink).HasMaxLength(500);
 
                 entity.Property(e => e.ProjectName).HasMaxLength(50);
 
@@ -184,10 +174,6 @@ namespace PortfolyoSitesi.Data
                 entity.ToTable("Slider");
 
                 entity.Property(e => e.SliderId).HasColumnName("SliderID");
-
-                entity.Property(e => e.ImageUrl)
-                    .HasMaxLength(500)
-                    .HasColumnName("ImageURL");
 
                 entity.Property(e => e.NameSurname).HasMaxLength(50);
 

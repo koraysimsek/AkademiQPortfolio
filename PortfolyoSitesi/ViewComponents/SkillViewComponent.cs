@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.ViewComponents
 {
     public class SkillViewComponent : ViewComponent
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public SkillViewComponent(portfolyodbContext portfolyodbContext)
+        public SkillViewComponent(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

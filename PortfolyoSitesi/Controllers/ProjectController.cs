@@ -6,9 +6,9 @@ using PortfolyoSitesi.Data;
 namespace AkademiQPortfolyoSitesi.Controllers;
 public class ProjectController : Controller
 {
-    private readonly portfolyodbContext _portfolyodbContext;
+    private readonly PortfolyoDbContext _portfolyodbContext;
 
-    public ProjectController(portfolyodbContext portfolyodbContext)
+    public ProjectController(PortfolyoDbContext portfolyodbContext)
     {
         _portfolyodbContext = portfolyodbContext;
     }

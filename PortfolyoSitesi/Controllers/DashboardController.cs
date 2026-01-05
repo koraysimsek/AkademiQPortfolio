@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public DashboardController(portfolyodbContext portfolyodbContext)
+        public DashboardController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

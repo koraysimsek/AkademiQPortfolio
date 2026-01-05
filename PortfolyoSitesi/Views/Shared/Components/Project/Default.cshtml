@@ -1,145 +1,50 @@
 ﻿@model List<PortfolyoSitesi.Data.Project>
 
 @{
-    Layout = null;
+	Layout = null;
 }
 
-	<div class="container">
-		<div class="portfolio-container isotope-container row my-n2 mx-sm-n2">
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-1.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-1.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details">
-							<h4 class="h5">Love</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+<div class="container">
+	<div class="portfolio-container isotope-container row my-n2 mx-sm-n2">
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 brand">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-2.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-2.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details">
-							<h4 class="h5">Beautiful Girl - Gallery</h4>
-							<p class="font-italic">Brand</p>
-						</div>
-					</a>
-				</div>
-			</div>
+		@foreach (var item in Model)
+		{
+			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2
+                        filter-@item.Category.CategoryName.Replace(" ", "-")">
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-3.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-3.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Future City - Youtube Iframe</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+				<div class="portfolio-item details-inside position-relative">
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 design">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-2.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-4.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Golden Gate Bridge</h4>
-							<p class="font-italic">Design</p>
-						</div>
-					</a>
-				</div>
-			</div>
+					<div class="item-media">
+						<img src="@item.ImageUrl" alt="">
+					</div>
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-1.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-9.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Beach</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+					<div class="item-overlay bg-dark"></div>
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-3.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-6.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Mountains</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+					<div class="item-details text-center">
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-1.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-10.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Adventure</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+						<h4 class="h5">@item.ProjectName</h4>
+						<p class="font-italic">@item.Category.CategoryName</p>
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-2.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-11.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Waterfall</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
-				</div>
-			</div>
+						<!-- 🔗 Project Link Button -->
+						@if (!string.IsNullOrEmpty(item.ProjectLink))
+						{
+							<a href="@item.ProjectLink"
+							   target="_blank"
+							   class="btn btn-sm btn-outline-light mt-2">
+								View Project
+							</a>
+						}
+						<!-- 🔗 Project Link Button -->
 
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2 web">
-				<div class="portfolio-item details-inside">
-					<a href="portfolio-single-1.html">
-						<div class="item-media">
-							<img src="~/html/demo/images/portfolio/project-5.jpg" alt="">
-						</div>
-						<div class="item-overlay bg-dark"></div>
-						<div class="item-details text-white">
-							<h4 class="h5">Sea</h4>
-							<p class="font-italic">Web</p>
-						</div>
-					</a>
+					</div>
+
 				</div>
 			</div>
-		</div><!-- .portfolio-container end -->
+		}
+
 	</div>
+</div>
+
+
+
 </section>

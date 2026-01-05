@@ -5,9 +5,9 @@ namespace AkademiQPortfolyoSitesi.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public ContactController(portfolyodbContext portfolyodbContext)
+        public ContactController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

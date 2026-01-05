@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public CategoryController(portfolyodbContext portfolyodbContext)
+        public CategoryController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

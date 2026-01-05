@@ -5,10 +5,10 @@ namespace PortfolyoSitesi.ViewComponents
 {
     public class AboutViewComponent : ViewComponent
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public AboutViewComponent(portfolyodbContext portfolyodbContext)
-        {
+        public AboutViewComponent(PortfolyoDbContext portfolyodbContext)
+        {   
             _portfolyodbContext = portfolyodbContext;
         }
 

@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.ViewComponents
 {
     public class TestimonialViewComponent : ViewComponent
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public TestimonialViewComponent(portfolyodbContext portfolyodbContext)
+        public TestimonialViewComponent(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

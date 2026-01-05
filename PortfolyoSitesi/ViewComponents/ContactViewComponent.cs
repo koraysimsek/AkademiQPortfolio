@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.ViewComponents
 {
     public class ContactViewComponent : ViewComponent
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public ContactViewComponent(portfolyodbContext portfolyodbContext)
+        public ContactViewComponent(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

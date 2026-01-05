@@ -5,9 +5,9 @@ namespace PortfolyoSitesi.Controllers
 {
     public class MessageController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public MessageController(portfolyodbContext portfolyodbContext)
+        public MessageController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

@@ -5,9 +5,9 @@ namespace AkademiQPortfolyoSitesi.Controllers
 {
     public class SkillController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public SkillController(portfolyodbContext portfolyodbContext)
+        public SkillController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }

@@ -1,4 +1,3 @@
 ﻿Create project kısmına bak yorum satırını yap
-Update project sayfasını yap
+
 about kısmı foto koy
-categorycontroller ekle

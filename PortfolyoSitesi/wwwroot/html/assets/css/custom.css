@@ -1,1 +1,103 @@
 ﻿/* Place Your Custom Styles Here */
+/* ==== MODERN COLOR SYSTEM ==== */
+:root {
+    --primary: #6366f1;
+    --secondary: #22c55e;
+    --accent: #ec4899;
+    --dark: #0f172a;
+}
+
+/* ==== HEADER ==== */
+.site-header {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.header-inner .overlay-inner {
+    background: linear-gradient( 135deg, rgba(99,102,241,.9), rgba(236,72,153,.9) );
+}
+
+/* ==== NAV ==== */
+.site-nav a {
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: color .3s ease;
+}
+
+    .site-nav a:hover {
+        color: var(--secondary);
+    }
+
+/* ==== SOCIAL ICONS ==== */
+.btn-icon {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(6px);
+    transition: all .35s ease;
+}
+
+    .btn-icon:hover {
+        background: white;
+        color: var(--primary);
+        transform: translateY(-4px);
+        box-shadow: 0 15px 30px rgba(0,0,0,.25);
+    }
+
+/* ==== HOME SECTION ==== */
+#home {
+    background: linear-gradient( 135deg, #6366f1, #22c55e, #ec4899 );
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==== HERO TEXT ==== */
+#home h1 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+#home .lead {
+    font-size: 1.25rem;
+    opacity: .9;
+}
+
+/* ==== AVATAR ==== */
+.avatar-img {
+    border: 6px solid rgba(255,255,255,.35);
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+/* HEADER SOCIAL FIX */
+.site-header nav {
+    position: relative;
+    z-index: 50;
+}
+
+.site-header .btn-icon {
+    background: rgba(255,255,255,.2);
+    color: #fff;
+}
+
+.site-header .btn-icon-inner {
+    color: #fff;
+    font-size: 14px;
+}
+
+.site-header .btn-icon:hover {
+    background: #fff;
+    color: #6366f1;
+    transform: translateY(-4px);
+}

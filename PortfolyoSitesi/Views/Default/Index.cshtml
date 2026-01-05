@@ -4,6 +4,8 @@
     Layout = "~/Views/Layout/Index.cshtml";
 }
 
+@await Component.InvokeAsync("Slider")
+
 @await Component.InvokeAsync("About")
 
 @await Component.InvokeAsync("Skill")

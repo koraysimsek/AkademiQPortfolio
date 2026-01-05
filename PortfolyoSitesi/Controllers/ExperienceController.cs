@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortfolyoSitesi.Data;
 
-namespace AkademiQPortfolyoSitesi.Controllers
+namespace PortfolyoSitesi.Controllers
 {
     public class ExperienceController : Controller
     {
-        private readonly portfolyodbContext _portfolyodbContext;
+        private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public ExperienceController(portfolyodbContext portfolyodbContext)
+        public ExperienceController(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }
@@ -50,7 +50,6 @@ namespace AkademiQPortfolyoSitesi.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         public IActionResult DeleteExperience(int id)
         {
             var values = _portfolyodbContext.Experiences.Find(id);

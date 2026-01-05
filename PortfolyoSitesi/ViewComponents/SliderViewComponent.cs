@@ -1,21 +1,21 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PortfolyoSitesi.Data;
 
 namespace PortfolyoSitesi.ViewComponents
 {
-    public class CategoryViewComponent : ViewComponent
+    public class SliderViewComponent : ViewComponent
     {
         private readonly PortfolyoDbContext _portfolyodbContext;
 
-        public CategoryViewComponent(PortfolyoDbContext portfolyodbContext)
+        public SliderViewComponent(PortfolyoDbContext portfolyodbContext)
         {
             _portfolyodbContext = portfolyodbContext;
         }
 
         public IViewComponentResult Invoke()
         {
-            var values = _portfolyodbContext.Categories.ToList();
+            var values = _portfolyodbContext.Sliders.ToList();
             return View(values);
         }
     }

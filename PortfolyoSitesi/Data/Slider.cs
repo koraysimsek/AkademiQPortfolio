@@ -8,7 +8,6 @@ namespace PortfolyoSitesi.Data
         public int SliderId { get; set; }
         public string? NameSurname { get; set; }
         public string? Title { get; set; }
-        public string? ImageUrl { get; set; }
         public string? ProfileImageUrl { get; set; }
     }
 }
