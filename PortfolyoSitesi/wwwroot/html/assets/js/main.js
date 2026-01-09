@@ -574,7 +574,7 @@ License: https://themeforest.net/licenses/standard
 
 	// [10. Contact Form]
 	function malat_contactForm() {
-		var contactForm = $('.contact-form');
+		var contactForm = $('.contact-form:not(.no-ajax)');
 		if( contactForm.length < 1 ){ return true; }
 
 		contactForm.each( function(){

@@ -12,7 +12,7 @@
 					<div class="col-lg-8 mx-lg-auto text-center">
 						<div class="section-title h2 mb-3">
 							<h2 class="mb-0">Contact</h2>
-							<span class="title-letter">İ</span>
+							<span class="title-letter">C</span>
 						</div>
 						<p class="text-muted">@Model[0].Description</p>
 					</div>
@@ -47,25 +47,25 @@
 						</div>
 					</div>
 				</div>
-				<div class="contact-form">
-					<form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post" autocomplete="off">
+				<div class="contact-form no-ajax">
+					<form class="mb-0" id="cf" name="cf" action="/Default/SendMessage" method="post" autocomplete="off">
 						<div class="row g-3">
 							<div class="form-process"></div>
 
 							<div class="col-12 col-md-6">
-								<input type="text" id="cf-name" name="cf-name" placeholder="Adınız" class="form-control required">
+								<input type="text" id="cf-name" name="NameSurname" placeholder="Name" class="form-control required">
 							</div>
 
 							<div class="col-12 col-md-6">
-								<input type="email" id="cf-email" name="cf-email" placeholder="E-posta adresiniz" class="form-control required">
+								<input type="email" id="cf-email" name="Email" placeholder="Email" class="form-control required">
 							</div>
 
 							<div class="col-12">
-								<input type="text" id="cf-subject" name="cf-subject" placeholder="Konu (İsteğe bağlı)" class="form-control">
+								<input type="text" id="cf-subject" name="Subject" placeholder="Subject (Optional)" class="form-control">
 							</div>
 
 							<div class="col-12">
-								<textarea name="cf-message" id="cf-message" placeholder="Mesajınız" class="form-control required" rows="6"></textarea>
+								<textarea name="MessageContent" id="cf-message" placeholder="Message" class="form-control required" rows="6"></textarea>
 							</div>
 
 							<div class="col-12 d-none">
@@ -73,8 +73,18 @@
 							</div>
 
 							<div class="col-12 text-center mt-4">
-								<button class="btn btn-primary px-5" type="submit" id="cf-submit" name="cf-submit">Mesaj Gönder</button>
+								<button class="btn btn-primary px-5" type="submit" id="cf-submit" name="cf-submit" onclick="messageSuccess()">Send Message</button>
 							</div>
+
+							<script>
+								function messageSuccess() {
+									alert("Your message has been sent successfully! Thanks.");
+									setTimeout(function () {
+									location.reload();
+								}, 1500);
+								}
+							</script>
+
 						</div>
 					</form>
 					<div class="contact-form-result text-center"></div>
