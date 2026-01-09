@@ -8,10 +8,13 @@
 	<div class="container align-self-center text-white text-center">
 		<div class="avatar avatar-xxl mb-6">
 			<div class="avatar-shape avatar-shape-rounded bg-white mt-n2 mb-n2 mr-n2"></div>
-			<img src="@Model[0].ProfileImageUrl" alt="" class="avatar-img rounded-circle shadow-light">
+			<img src="@Model[0].ProfileImageUrl" alt="Profile Photo" class="avatar-img rounded-circle shadow-light">
 		</div>
 		<h1 class="mb-2 mb-lg-3">@Model[0].NameSurname</h1>
-		<p class="lead mb-0">@Model[0].Title</p>
-		<span class="cover-letter letter-xl text-white opacity-10">A</span>
+		<p class="lead mb-4">@Model[0].Title</p>
+		<div class="d-flex justify-content-center gap-3 mt-4">
+			<a href="#about" class="btn btn-primary px-4 scrollto">About Me</a>
+			<a href="#contact" class="btn btn-outline-light px-4 scrollto">Contact</a>
+		</div>
 	</div>
 </section>

@@ -4,114 +4,11 @@
 	Layout = null;
 }
 
-<style>
-	/* ---- GLOBAL IMPROVEMENTS ---- */
-	html {
-		scroll-behavior: smooth;
-	}
-
-	section {
-		padding: 90px 0;
-	}
-
-	.section-title h2 {
-		font-weight: 800;
-		letter-spacing: -0.5px;
-	}
-
-	.section-title .title-letter {
-		font-size: 90px;
-		opacity: .05;
-		font-weight: 900;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: -30px;
-		pointer-events: none;
-	}
-
-	/* ---- BUTTONS ---- */
-	.btn {
-		border-radius: 50px;
-		transition: all .35s ease;
-	}
-
-		.btn:hover {
-			transform: translateY(-4px);
-			box-shadow: 0 12px 30px rgba(0,0,0,.2);
-		}
-
-	/* ---- CARD EFFECT ---- */
-	.feature-block,
-	.portfolio-item {
-		border-radius: 16px;
-		overflow: hidden;
-		transition: all .4s ease;
-	}
-
-		.feature-block:hover,
-		.portfolio-item:hover {
-			transform: translateY(-6px);
-			box-shadow: 0 25px 60px rgba(0,0,0,.15);
-		}
-
-	/* ---- PROGRESS BAR ---- */
-	.progress {
-		background-color: rgba(0,0,0,.05);
-	}
-
-	.progress-bar {
-		border-radius: 10px;
-		background: linear-gradient(90deg,#4f46e5,#22c55e);
-	}
-
-	/* ---- PORTFOLIO OVERLAY ---- */
-	.portfolio-item .item-overlay {
-		opacity: 0;
-		transition: all .4s ease;
-	}
-
-	.portfolio-item:hover .item-overlay {
-		opacity: .75;
-	}
-
-	.portfolio-item .item-details {
-		transform: translateY(20px);
-		opacity: 0;
-		transition: all .4s ease;
-	}
-
-	.portfolio-item:hover .item-details {
-		transform: translateY(0);
-		opacity: 1;
-	}
-
-	/* ---- EXPERIENCE LINE ---- */
-	#experience .row {
-		padding: 20px 0;
-	}
-
-	#experience hr {
-		opacity: .1;
-	}
-
-	/* ---- CONTACT FORM ---- */
-	.contact-form .form-control {
-		border-radius: 12px;
-		padding: 14px 16px;
-	}
-
-		.contact-form .form-control:focus {
-			box-shadow: 0 0 0 .2rem rgba(79,70,229,.2);
-			border-color: #4f46e5;
-		}
-</style>
-
 <section id="about">
 	<div class="container">
 		<div class="section-title h2 text-center mb-8">
 			<h2 class="mb-0">About Me</h2>
-			<span class="title-letter">A</span>
+			<span class="title-letter"></span>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-lg-4 d-none d-lg-block">
@@ -132,10 +29,10 @@
 					</div>
 				</div>
 				<div class="mt-6 d-flex gap-3">
-					<a href="#skills" class="btn btn-primary px-5 text-white">
+					<a href="#skills" class="btn btn-primary px-4 scrollto">
 						My Skills
 					</a>
-					<a href="#experience" class="btn btn-success px-5 text-white">
+					<a href="#experience" class="btn btn-outline-primary px-4 scrollto">
 						My Experiences
 					</a>
 				</div>
