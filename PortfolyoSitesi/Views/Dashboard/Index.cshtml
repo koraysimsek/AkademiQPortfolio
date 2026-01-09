@@ -4,14 +4,14 @@
 }
 
 <!-- Scrollable Dashboard Content -->
-<div class="flex-1 overflow-y-auto bg-background-light p-6 dark:bg-background-dark md:p-10">
+<div class="flex-1 overflow-y-auto bg-blue-50 p-6 md:p-10">
     <div class="mx-auto max-w-7xl">
 
         <!-- Title Section -->
         <div class="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div>
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Dashboard</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">
+                <h3 class="text-2xl font-bold text-slate-800">Dashboard</h3>
+                <p class="text-sm text-slate-500">
                     Real-time data updates for your platform.
                 </p>
             </div>
@@ -20,152 +20,141 @@
         <!-- Cards -->
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-            <!-- Card -->
-            <!-- Projects -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-        Projects Count : @ViewBag.ProjectsCount
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">folder</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.LastProject</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Most Recent Project</p>
-    </div>
-</div>
+            <!-- Card: Projects -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
+                    Projects Count : @ViewBag.ProjectsCount
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">folder</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.LastProject</h4>
+                    <p class="text-sm text-slate-500">Most Recent Project</p>
+                </div>
+            </div>
 
-<!-- Category with Most Projects -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            <!-- Card: Category -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
                     @ViewBag.MostCategoryName Category Projects Count : @ViewBag.MostCategoryCount
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">category</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.MostCategoryName</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Category with the Most Projects</p>
-    </div>
-</div>
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">category</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.MostCategoryName</h4>
+                    <p class="text-sm text-slate-500">Category with the Most Projects</p>
+                </div>
+            </div>
 
-<!-- Top Skill -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            <!-- Card: Top Skill -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
                     @ViewBag.TopSkillName Level : @ViewBag.TopSkillLevel
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">workspace_premium</span>
-        </div>
-    </div>
-    <div class="mt-6">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.TopSkillName</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Highest Level Skill</p>
-    </div>
-</div>
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">workspace_premium</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.TopSkillName</h4>
+                    <p class="text-sm text-slate-500">Highest Level Skill</p>
+                </div>
+            </div>
 
-<!-- Services -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-        Services Count : @ViewBag.ServicesCount
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">design_services</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.LastService</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Most Recent Service</p>
-    </div>
-</div>
+            <!-- Card: Services -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
+                    Services Count : @ViewBag.ServicesCount
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">design_services</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.LastService</h4>
+                    <p class="text-sm text-slate-500">Most Recent Service</p>
+                </div>
+            </div>
 
-<!-- Testimonials -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-        Testimonials Count : @ViewBag.TestimonialsCount
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">reviews</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.LastTestimonial</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Most Recent Testimonial</p>
-    </div>
-</div>
+            <!-- Card: Testimonials -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
+                    Testimonials Count : @ViewBag.TestimonialsCount
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">reviews</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.LastTestimonial</h4>
+                    <p class="text-sm text-slate-500">Most Recent Testimonial</p>
+                </div>
+            </div>
 
-<!-- Messages -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <span class="absolute top-4 right-4 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-        Messages Count : @ViewBag.MessagesCount
-    </span>
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">chat</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.LastMessageSender</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Last Message Sender</p>
-    </div>
-</div>
+            <!-- Card: Messages -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <span class="absolute top-4 right-4 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
+                    Messages Count : @ViewBag.MessagesCount
+                </span>
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">chat</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.LastMessageSender</h4>
+                    <p class="text-sm text-slate-500">Last Message Sender</p>
+                </div>
+            </div>
 
-<!-- First Experience -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">work_history</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.FirstExperienceTitle</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">First Experience</p>
-    </div>
-</div>
+            <!-- Card: First Experience -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">work_history</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.FirstExperienceTitle</h4>
+                    <p class="text-sm text-slate-500">First Experience</p>
+                </div>
+            </div>
 
-<!-- First Project -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.FirstProjectName</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">First Project</p>
-    </div>
-</div>
+            <!-- Card: First Project -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.FirstProjectName</h4>
+                    <p class="text-sm text-slate-500">First Project</p>
+                </div>
+            </div>
 
-<!-- Last Skill -->
-<div class="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-    <div class="flex items-start justify-between">
-        <div class="rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-            <span class="material-symbols-outlined text-3xl">psychology</span>
-        </div>
-    </div>
-    <div class="mt-4">
-        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white">@ViewBag.LastSkill</h4>
-        <p class="text-sm text-slate-500 dark:text-slate-400">Most Recent Skill</p>
-    </div>
-</div>
-
-
-            <!-- Diğer kartlar aynı yapı ile devam eder -->
-            <!-- Revenue, Orders, Tickets, Analytics vs. -->
+            <!-- Card: Last Skill -->
+            <div class="group relative flex flex-col justify-between rounded-xl border border-blue-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between">
+                    <div class="rounded-lg bg-blue-100 p-3 text-blue-600">
+                        <span class="material-symbols-outlined text-3xl">psychology</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-3xl font-extrabold text-slate-900">@ViewBag.LastSkill</h4>
+                    <p class="text-sm text-slate-500">Most Recent Skill</p>
+                </div>
+            </div>
 
         </div>
     </div>
-
-    <!-- Footer -->
-
-        
-    
 </div>
-

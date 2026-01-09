@@ -11,6 +11,17 @@
     --gray-400: #94a3b8;
 }
 
+.skill-percent {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+    font-weight: 600;
+    font-size: 0.85rem;
+    z-index: 2;
+}
+
 /* ==== SECTION SPACING & ROUNDED CORNERS ==== */
 section {
     margin: 0 24px;
