@@ -16,7 +16,6 @@
             <h3>İletişim Bilgileri</h3>
             @foreach (var item in Model)
             {
-                
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <div class="contact-item-info">
@@ -45,25 +44,45 @@
 
         <div class="contact-form">
             <h3>Bir Mesaj Gönderin</h3>
-            <form action="/Default/SendMessage" method="post">
+            <form action="/Default/SendMessage" method="post" id="contactForm">
                 <div class="form-group">
                     <label for="name">Ad Soyad</label>
-                    <input type="text" id="name" name="NameSurname" placeholder="Adınız" required>
+                    <input type="text" id="name" name="NameSurname" placeholder="Adınız" required
+                           oninvalid="this.setCustomValidity('Lütfen adınızı ve soyadınızı giriniz')"
+                           oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                     <label for="email">E-posta</label>
-                    <input type="email" id="email" name="Email" placeholder="e-posta@adresiniz.com" required>
+                    <input type="email" id="email" name="Email" placeholder="e-posta@adresiniz.com" required
+                           oninvalid="this.setCustomValidity('Lütfen geçerli bir e-posta adresi giriniz')"
+                           oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                     <label for="subject">Konu</label>
-                    <input type="text" id="subject" name="Subject" placeholder="Mesaj konusu" required>
+                    <input type="text" id="subject" name="Subject" placeholder="Mesaj konusu" required
+                           oninvalid="this.setCustomValidity('Lütfen bir konu başlığı giriniz')"
+                           oninput="this.setCustomValidity('')">
                 </div>
                 <div class="form-group">
                     <label for="message">Mesaj</label>
-                    <textarea id="message" name="MessageContent" placeholder="Nasıl yardımcı olabilirim?" required></textarea>
+                    <textarea id="message" name="MessageContent" placeholder="Nasıl yardımcı olabilirim?" required
+                              oninvalid="this.setCustomValidity('Lütfen mesajınızı yazınız')"
+                              oninput="this.setCustomValidity('')"></textarea>
                 </div>
-                <button type="submit" class="submit-btn" onclick="alert('Mesaj başarıyla gönderildi!')">Mesaj Gönder</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Mesaj Gönder</button>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // Form geçerli değilse tarayıcı zaten engeller, ama emin olmak için:
+        if (this.checkValidity()) {
+            // Normalde bu form sunucuya post edilecek. 
+            // Kullanıcıya mesaj göstermek için kısa bir timeout veya alert kullanabiliriz.
+            // Gerçek projede sunucudan gelen yanıt beklenir.
+            alert('Mesaj başarıyla gönderildi!');
+        }
+    });
+</script>
