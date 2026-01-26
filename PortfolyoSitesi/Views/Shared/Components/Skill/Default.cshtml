@@ -4,42 +4,22 @@
 	Layout = null;
 }
 
-<section id="skills" class="bg-light">
-	<div class="container">
-		<div class="row mb-8">
-			<div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
-				<div class="section-title h2 mb-3">
-					<h2 class="mb-0">Skills</h2>
-					<span class="title-letter">Y</span>
-				</div>
-				<p class="text-muted">My Professional Skills and Areas of Expertise</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 mb-5 mb-md-0">
-
-				@foreach (var item in Model)
-				{
-					<p class="h6 mb-2">@item.SkillName</p>
-
-					<div class="progress position-relative mb-4" style="height: 22px;">
-						<div class="progress-bar"
-							 role="progressbar"
-							 style="width: @item.SkillPercentage%"
-							 aria-valuenow="@item.SkillPercentage"
-							 aria-valuemin="0"
-							 aria-valuemax="100">
-						</div>
-
-						<!-- Yüzde yazısı (en sağda, siyah) -->
-						<span class="skill-percent">
-							@item.SkillPercentage%
-						</span>
-					</div>
-				}
-
-			</div>
-
-		</div>
-	</div>
+<section id="skills">
+    <div class="section-title">
+        <h2>Yeteneklerim</h2>
+        <div class="underline"></div>
+        <p>Günlük hayatımda hakim olduğum ve kullandığım teknolojiler ve araçlar</p>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Teknik Yetenekler</h3>
+            @foreach (var item in Model)
+            {
+                <div class="skill-bar">
+                    <div class="skill-name"><span>@item.SkillName</span><span>@item.SkillPercentage%</span></div>
+                    <div class="progress-bar"><div class="progress" style="width: @item.SkillPercentage%"></div></div>
+                </div>
+            }
+        </div>
+    </div>
 </section>

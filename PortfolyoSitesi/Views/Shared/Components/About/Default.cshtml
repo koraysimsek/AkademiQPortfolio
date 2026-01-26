@@ -5,41 +5,27 @@
 }
 
 <section id="about">
-	<div class="container">
-		<div class="section-title h2 text-center mb-8">
-			<h2 class="mb-0">About Me</h2>
-			<span class="title-letter"></span>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-4 d-none d-lg-block">
-				<img class="img-fluid w-100 rounded" src="@Model[0].ImageUrl" alt="">
-			</div>
-			<div class="col-lg-8">
-				<h3>@Model[0].NameSurname</h3>
-				<p class="lead">@Model[0].Title</p>
-				<p class="mb-5">@Model[0].Description</p>
-				<div class="row mb-8">
-					<div class="col-md-6 mb-5 mb-md-0">
-						<h4 class="mb-4">Education</h4>
-						@foreach (var item in Model)
-						{
-							<p class="h5">@item.Section</p>
-							<p>@item.University, @item.StartYear - @item.EndYear</p>
-						}
-					</div>
-				</div>
-				<div class="mt-6 d-flex gap-3">
-					<a href="#skills" class="btn btn-primary px-4 scrollto">
-						My Skills
-					</a>
-					<a href="#experience" class="btn btn-outline-primary px-4 scrollto">
-						My Experiences
-					</a>
-				</div>
-
-			</div>
-
-
-		</div>
-	</div>
+    <div class="section-title">
+        <h2>Hakkımda</h2>
+        <div class="underline"></div>
+        <p>Benim ve yolculuğum hakkında biraz daha fazla bilgi edinin</p>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="about-content">
+            <div class="about-image">
+                <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" : item.ImageUrl)" alt="@item.NameSurname">
+            </div>
+            <div class="about-text">
+                <h3>@item.Title</h3>
+                <p>@item.Description</p>
+                <div class="info-grid">
+                    <div class="info-item"><strong>İsim:</strong> @item.NameSurname</div>
+                    <div class="info-item"><strong>Eğitim:</strong> @item.University - @item.Section</div>
+                    <div class="info-item"><strong>Deneyim:</strong> @item.StartYear - @item.EndYear</div>
+                </div>
+                <a href="#contact" class="btn btn-primary">İletişime Geçin</a>
+            </div>
+        </div>
+    }
 </section>

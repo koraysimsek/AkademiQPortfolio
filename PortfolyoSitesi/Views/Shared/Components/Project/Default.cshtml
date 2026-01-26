@@ -4,47 +4,44 @@
 	Layout = null;
 }
 
-<div class="container">
-	<div class="portfolio-container isotope-container row my-n2 mx-sm-n2">
+<div class="projects-grid isotope-container row">
+    @foreach (var item in Model)
+    {
+        <div class="isotope-item col-md-6 col-lg-4 p-3 filter-@item.Category?.CategoryName?.Replace(" ", "-")">
+            <div class="project-card" style="margin: 0;">
+                <div class="project-image">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl"
+                             alt="@item.ProjectName"
+                             style="width: 100%; height: 100%; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <span>🏪</span>
+                    }
+                </div>
 
-		@foreach (var item in Model)
-		{
-			<div class="isotope-item col-sm-6 col-lg-4 py-2 px-sm-2
-                        filter-@item.Category.CategoryName.Replace(" ", "-")">
+                <div class="project-info">
+                    <h3>@item.ProjectName</h3>
+                    <p>@item.Title</p>
 
-				<div class="portfolio-item details-inside position-relative">
+                    <div class="project-tags">
+                        <span class="tag">@item.Category?.CategoryName</span>
+                    </div>
 
-					<div class="item-media">
-						<img src="@item.ImageUrl" alt="">
-					</div>
-
-					<div class="item-overlay bg-dark"></div>
-
-					<div class="item-details text-center">
-
-						<h4 class="h5">@item.ProjectName</h4>
-						<p class="font-italic">@item.Category.CategoryName</p>
-
-						<!-- 🔗 Project Link Button -->
-						@if (!string.IsNullOrEmpty(item.ProjectLink))
-						{
-							<a href="@item.ProjectLink"
-							   target="_blank"
-							   class="btn btn-sm btn-outline-light mt-2">
-								View Project
-							</a>
-						}
-						<!-- 🔗 Project Link Button -->
-
-					</div>
-
-				</div>
-			</div>
-		}
-
-	</div>
+                    @if (!string.IsNullOrEmpty(item.ProjectLink))
+                    {
+                        <a href="@item.ProjectLink"
+                           class="btn btn-sm btn-outline-primary mt-3"
+                           target="_blank"
+                           rel="noopener">
+                            Projeyi İncele
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
 </div>
-
-
-
 </section>

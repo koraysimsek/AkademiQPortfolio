@@ -4,38 +4,26 @@
 	Layout = null;
 }
 
-<section id="portfolio">
-	<div class="container">
-		<div class="row mb-8">
-			<div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
+<section id="projects">
+    <div class="section-title">
+        <h2>Portfolyom</h2>
+        <div class="underline"></div>
+        <p>Yakın zamanda yaptığım çalışmalardan bazılarına göz atın</p>
+    </div>
 
-				<div class="section-title h2 mb-3">
-					<h2 class="mb-0">Portfolio</h2>
-					<span class="title-letter">P</span>
-				</div>
+    <div class="projects-filter isotope-filter">
+        <ul>
+            <li>
+                <a href="#" class="active" data-filter="*">Hepsi</a>
+            </li>
 
-				<nav class="portfolio-filter isotope-filter">
-					<ul class="justify-content-center">
-
-						<!-- All -->
-						<li>
-							<a href="#" class="active" data-filter="*">All</a>
-						</li>
-
-						<!-- Categories -->
-						@foreach (var item in Model)
-						{
-							<li>
-								<a href="#"
-								   data-filter=".filter-@item.CategoryName.Replace(" ", "-")">
-									@item.CategoryName
-								</a>
-							</li>
-						}
-
-					</ul>
-				</nav>
-
-			</div>
-		</div>
-	</div>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="#" data-filter=".filter-@item.CategoryName.Replace(" ", "-")">
+                        @item.CategoryName
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>

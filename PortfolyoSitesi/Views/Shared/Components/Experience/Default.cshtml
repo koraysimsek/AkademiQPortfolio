@@ -4,26 +4,23 @@
 	Layout = null;
 }
 
-<section id="experience" class="bg-light">
-	<div class="container">
-		<div class="section-title h2 text-center mb-8">
-			<h2 class="mb-0">Experience</h2>
-			<span class="title-letter">D</span>
-		</div>
-
-		@foreach (var item in Model)
-		{
-			<div class="row align-items-start">
-				<div class="col-lg-4 mb-2 mb-lg-0">
-					<h5 class="mb-1">@item.Title</h5>
-					<p class="text-primary mb-0 fw-medium">@item.CompanyName</p>
-					<small class="text-muted">@item.StartDate - @item.EndDate</small>
-				</div>
-				<div class="col-lg-8">
-					<p class="mb-0">@item.Description</p>
-				</div>
-			</div>
-		}
-
-	</div>
+<section id="experience">
+    <div class="section-title">
+        <h2>Deneyimim</h2>
+        <div class="underline"></div>
+        <p>Yıllar içindeki profesyonel yolculuğum</p>
+    </div>
+    <div class="timeline">
+        @foreach (var item in Model)
+        {
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>@item.Title</h3>
+                    <div class="date">@item.StartDate - @item.EndDate</div>
+                    <p><strong>@item.CompanyName</strong></p>
+                    <p>@item.Description</p>
+                </div>
+            </div>
+        }
+    </div>
 </section>

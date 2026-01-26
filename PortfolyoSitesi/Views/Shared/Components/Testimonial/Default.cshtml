@@ -1,44 +1,39 @@
 ﻿@model List<PortfolyoSitesi.Data.Testimonial>
 
 @{
-	Layout = null;
+    Layout = null;
 }
 
-<section>
-	<div class="overlay">
-		<div class="overlay-inner bg-image-holder bg-cover bg-center">
-			<img src="demo/images/image-5.jpg" alt="background">
-		</div>
-		<div class="overlay-inner bg-dark opacity-70"></div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-11 col-xl-10 mx-lg-auto text-center text-white">
-				<div class="slider dots-light dots-outside" data-slick='{"dots":true,"arrows":false}'>
-
-					@foreach (var item in Model)
-					{
-						<div>
-							<div class="icon icon-5x mb-8">
-								<i class="fa fa-quote-right"></i>
-							</div>
-							<blockquote>
-								<p class="mb-5">@item.Description</p>
-								<footer class="d-flex justify-content-center align-items-center w-lg-50 mx-auto text-left">
-									<div class="avatar">
-										<img src="@item.ImageUrl" alt="" class="avatar-img rounded-circle shadow-dark">
-									</div>
-									<div class="ml-5">
-										<h4 class="h6 mb-0">@item.TestimonialName</h4>
-										<small class="d-block">@item.Title, @item.Company</small>
-									</div>
-								</footer>
-							</blockquote>
-						</div>
-					}
-
-				</div>
-			</div>
-		</div>
-	</div>
+<section id="testimonials">
+    <div class="section-title">
+        <h2>Referanslar</h2>
+        <div class="underline"></div>
+        <p>Geliştirdiğim projelerde performans, sürdürülebilirlik ve temiz kod odaklı çalışırım. Aşağıdaki referanslar, bu yaklaşımın gerçek projelerdeki yansımalarını göstermektedir.</p>
+    </div>
+    
+    <div class="testimonials-grid">
+        @foreach (var item in Model)
+        {
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p>@item.Description</p>
+                <div class="client-info">
+                    <div class="client-avatar">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="@item.ImageUrl" alt="@item.TestimonialName">
+                        }
+                        else
+                        {
+                            <span>@item.TestimonialName?[0]</span>
+                        }
+                    </div>
+                    <div class="client-details">
+                        <h4>@item.TestimonialName</h4>
+                        <span>@item.Title, @item.Company</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </section>

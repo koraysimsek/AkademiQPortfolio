@@ -24,7 +24,7 @@ License: https://themeforest.net/licenses/standard
 11. Plugins
 -------------------------------------------------------*/
 
-(function($) {
+(function ($) {
 	"use strict";
 
 	// Vars
@@ -37,11 +37,11 @@ License: https://themeforest.net/licenses/standard
 		smoothScrollRun = false;
 
 	function getWindowWidth() {
-		return Math.max( $(window).width(), window.innerWidth);
+		return Math.max($(window).width(), window.innerWidth);
 	}
 
-	function getWindowHeight(){
-		return Math.max($(window).height(), window.innerHeight );
+	function getWindowHeight() {
+		return Math.max($(window).height(), window.innerHeight);
 	}
 
 	// [1. Preloader]
@@ -58,18 +58,18 @@ License: https://themeforest.net/licenses/standard
 		return distance * rate;
 	}
 
-	function getSectionsOffsets(){
+	function getSectionsOffsets() {
 		var _sectionNodeList = document.querySelectorAll('section'),
 			i = 0,
 			sections = [],
 			homeHeight = document.querySelector('#home') ? document.querySelector('#home').offsetHeight : 0,
 			el;
 
-		while ( el = _sectionNodeList[ i++ ] ){
-			if( el.hasAttribute('id') ){
+		while (el = _sectionNodeList[i++]) {
+			if (el.hasAttribute('id')) {
 				var _id = el.id;
 
-				if( _id === 'home' ){
+				if (_id === 'home') {
 					sections.push({
 						id: _id,
 						offsetTop: el.offsetTop
@@ -86,8 +86,8 @@ License: https://themeforest.net/licenses/standard
 		return sections;
 	}
 
-	function malat_spyscroll(){
-		if( navSpyScroll === false ){
+	function malat_spyscroll() {
+		if (navSpyScroll === false) {
 			return false;
 		}
 
@@ -95,23 +95,23 @@ License: https://themeforest.net/licenses/standard
 			lastScrollPosition,
 			i = 0;
 
-		window.addEventListener( 'scroll', function(){
-			if( smoothScrollRun === true ){
+		window.addEventListener('scroll', function () {
+			if (smoothScrollRun === true) {
 				return false;
 			}
 
 			var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop,
 				scrollPosition_b = document.documentElement.scrollTop || document.body.scrollTop;
 
-			if( scrollPosition > lastScrollPosition ){
+			if (scrollPosition > lastScrollPosition) {
 				scrollPosition = scrollPosition + getWindowHeight();
-			} else if( scrollPosition < lastScrollPosition ){
+			} else if (scrollPosition < lastScrollPosition) {
 				scrollPosition = scrollPosition_b;
 			}
 
-			for (i in sections){
-				if ( scrollPosition >= sections[i].offsetTop ){
-					if( $('#navigation a[href="#' + sections[i].id + '"]').length ){
+			for (i in sections) {
+				if (scrollPosition >= sections[i].offsetTop) {
+					if ($('#navigation a[href="#' + sections[i].id + '"]').length) {
 						$('#navigation .active').removeClass('active');
 						$('#navigation a[href="#' + sections[i].id + '"]').addClass('active');
 					}
@@ -126,9 +126,9 @@ License: https://themeforest.net/licenses/standard
 
 		var class_open = 'site-header-open';
 
-		$body.on( 'click', '#navigation-toggle', function(e) {
+		$body.on('click', '#navigation-toggle', function (e) {
 			e.preventDefault();
-			if( !$(this).hasClass('open') ){
+			if (!$(this).hasClass('open')) {
 				$(this).addClass('open');
 				$body.addClass(class_open);
 			} else {
@@ -137,37 +137,37 @@ License: https://themeforest.net/licenses/standard
 			}
 		});
 
-		$body.on( 'click', '.header-overlay', function() {
-			if ( $body.hasClass(class_open) && $navToggle.hasClass('open') ){
+		$body.on('click', '.header-overlay', function () {
+			if ($body.hasClass(class_open) && $navToggle.hasClass('open')) {
 				$navToggle.trigger('click');
 			}
 		});
 
-		$(document).keyup(function(e) {
-			if ( e.keyCode == 27 && $body.hasClass(class_open) ) {
+		$(document).keyup(function (e) {
+			if (e.keyCode == 27 && $body.hasClass(class_open)) {
 				$navToggle.trigger('click');
 			}
 		});
 
 		// Back to top
-		if ( $('#backtotop').length > 0 ) {
-			$('body').on('click', '#backtotop', function(e) {
+		if ($('#backtotop').length > 0) {
+			$('body').on('click', '#backtotop', function (e) {
 				e.preventDefault();
 
 				var duration = getDuration(0);
 
 				$('html, body').animate({
 					scrollTop: 0
-				}, duration, 'easeOutQuad' );
+				}, duration, 'easeOutQuad');
 
 				return false;
 			});
 		}
 
 		// Smooth Scroll
-		$('body').on( 'click', 'a.scrollto', function(e) {
+		$('body').on('click', 'a.scrollto', function (e) {
 			if (this.hash !== '') {
-				if( $( this.hash ).length > 0 ) {
+				if ($(this.hash).length > 0) {
 					e.preventDefault();
 
 					smoothScrollRun = true;
@@ -176,24 +176,24 @@ License: https://themeforest.net/licenses/standard
 						position = $(hash).offset().top,
 						duration = getDuration(position);
 
-					if ( $('.page-cover ' + hash).length ){
+					if ($('.page-cover ' + hash).length) {
 						position = $(hash).offset().top - $(window).scrollTop();
-						duration = getDuration( position );
+						duration = getDuration(position);
 					}
 
-					if( $('#navigation a[href="' + hash + '"]').length ){
+					if ($('#navigation a[href="' + hash + '"]').length) {
 						$('#navigation .active').removeClass('active');
 						$('#navigation a[href="' + hash + '"]').addClass('active');
 					}
 
 					$('html, body').stop().animate({
 						scrollTop: position
-					}, duration, 'easeOutQuad', function() {
+					}, duration, 'easeOutQuad', function () {
 						window.location.hash = hash;
 						smoothScrollRun = false;
 					});
 
-					if ( $navToggle.hasClass('open') ){
+					if ($navToggle.hasClass('open')) {
 						$navToggle.trigger('click');
 					}
 				}
@@ -205,15 +205,15 @@ License: https://themeforest.net/licenses/standard
 	function malat_responsiveNavigation() {
 		var class_open = 'site-header-open';
 
-		if( getWindowWidth() >= 1200 ){
+		if (getWindowWidth() >= 1200) {
 			$navToggle.removeClass('open');
 			$body.removeClass(class_open);
 		}
 	}
 
 	function malat_autoHideMobileNavigation() {
-		if( $body.hasClass('auto-hide-mobile-nav') ){
-			if( 1200 > getWindowWidth() ){
+		if ($body.hasClass('auto-hide-mobile-nav')) {
+			if (1200 > getWindowWidth()) {
 				var lastPos = 0,
 					scrollDistance = 0,
 					scrollDirection = 0,
@@ -222,14 +222,14 @@ License: https://themeforest.net/licenses/standard
 					scrollDistance_A = 0,
 					scrollDistance_count = 0;
 
-				$(window).on('scroll', function(e){
+				$(window).on('scroll', function (e) {
 					var currentPos = $(window).scrollTop();
 					scrollDistance_count++;
 
-					if (currentPos > lastPos){
+					if (currentPos > lastPos) {
 						scrollDirection = scrollDirection_DOWN;
-						
-						if( scrollDistance_count === 1 ){
+
+						if (scrollDistance_count === 1) {
 							scrollDistance_A = currentPos;
 						}
 
@@ -239,7 +239,7 @@ License: https://themeforest.net/licenses/standard
 						scrollDistance_count = 0;
 					}
 
-					if( scrollDistance > 300 & scrollDirection === scrollDirection_DOWN ){
+					if (scrollDistance > 300 & scrollDirection === scrollDirection_DOWN) {
 						$body.addClass('mobile-nav-hide');
 					} else {
 						$body.removeClass('mobile-nav-hide');
@@ -258,8 +258,8 @@ License: https://themeforest.net/licenses/standard
 		var $backtotop = $('#backtotop'),
 			scrollPosition = $(window).scrollTop();
 
-		if( getWindowWidth() >= 576 ){
-			if ( scrollPosition > 200 ) {
+		if (getWindowWidth() >= 576) {
+			if (scrollPosition > 200) {
 				$backtotop.addClass('show');
 			} else {
 				$backtotop.removeClass('show');
@@ -273,25 +273,25 @@ License: https://themeforest.net/licenses/standard
 	function malat_pageCover() {
 		var pageCover = $('#page-cover');
 
-		if( pageCover.length > 0 ){
-			var pageCover_height = Math.max( $('#page-cover .page-cover-wrap').height(), $('#page-cover .page-cover-wrap').innerHeight() ),
+		if (pageCover.length > 0) {
+			var pageCover_height = Math.max($('#page-cover .page-cover-wrap').height(), $('#page-cover .page-cover-wrap').innerHeight()),
 				pageCover_offset = pageCover.offset().top,
 				pageCover_content = $('#page-cover section .container'),
 				last_scroll = 0,
 				scroll_direction = 'down';
 
-			pageCover.css( 'height', pageCover_height );
+			pageCover.css('height', pageCover_height);
 
-			$(window).on( 'scroll', function(){
+			$(window).on('scroll', function () {
 				var scrollPos = $(window).scrollTop(),
 					scrollStep = last_scroll - scrollPos;
 
-				if ( pageCover_height > scrollPos ) {
-					var opacity_value = (100 - (100 * scrollPos / pageCover_height )) / 100;
+				if (pageCover_height > scrollPos) {
+					var opacity_value = (100 - (100 * scrollPos / pageCover_height)) / 100;
 
-					pageCover_content.css( 'opacity', opacity_value );
+					pageCover_content.css('opacity', opacity_value);
 
-					scroll_direction = ( last_scroll < scrollPos ) ? 'up' : 'down';
+					scroll_direction = (last_scroll < scrollPos) ? 'up' : 'down';
 					last_scroll = scrollPos;
 				}
 			});
@@ -303,17 +303,17 @@ License: https://themeforest.net/licenses/standard
 
 		// Image
 		var $bgImage = $('.bg-image-holder');
-		if( $bgImage.length ) {
-			$bgImage.each(function(){
+		if ($bgImage.length) {
+			$bgImage.each(function () {
 				var src = $(this).children('img').attr('src');
 				var $self = $(this);
 
-				$self.css('background-image','url('+src+')').children('img').hide();
+				$self.css('background-image', 'url(' + src + ')').children('img').hide();
 			});
 		}
 
 		// Slideshow
-		if ( $body.hasClass('slideshow-background') ) {
+		if ($body.hasClass('slideshow-background')) {
 			$body.vegas({
 				preload: true,
 				timer: false,
@@ -330,7 +330,7 @@ License: https://themeforest.net/licenses/standard
 		}
 
 		// Slideshow - ZoomOut
-		if ( $body.hasClass('slideshow-zoom-background') ) {
+		if ($body.hasClass('slideshow-zoom-background')) {
 			$body.vegas({
 				preload: true,
 				timer: false,
@@ -347,7 +347,7 @@ License: https://themeforest.net/licenses/standard
 		}
 
 		// Kenburns
-		if ( $body.hasClass('kenburns-background') ) {
+		if ($body.hasClass('kenburns-background')) {
 
 			var kenburnsDisplayBackdrops = false;
 			var kenburnsBackgrounds = [
@@ -374,7 +374,7 @@ License: https://themeforest.net/licenses/standard
 						backdrop.transitionDuration = 1000;
 
 						$body
-							.vegas('options', 'slides', [ backdrop ])
+							.vegas('options', 'slides', [backdrop])
 							.vegas('next');
 					}
 				}
@@ -382,29 +382,29 @@ License: https://themeforest.net/licenses/standard
 		}
 
 		// Video Background
-		if( $body.hasClass('mobile') ) {
+		if ($body.hasClass('mobile')) {
 			$('.video-wrapper').css('display', 'none');
 		}
 
 		// Granim
-		$('[data-gradient-bg]').each(function(index,element){
+		$('[data-gradient-bg]').each(function (index, element) {
 			var granimParent = $(this),
-				granimID = 'granim-'+index+'',
+				granimID = 'granim-' + index + '',
 				colours = granimParent.attr('data-gradient-bg'),
-				colours = colours.replace(' ',''),
+				colours = colours.replace(' ', ''),
 				colours = colours.replace(/'/g, '"')
-				colours = JSON.parse( colours );
+			colours = JSON.parse(colours);
 
 			// Add canvas
-			granimParent.prepend('<canvas id="'+granimID+'"></canvas>');
+			granimParent.prepend('<canvas id="' + granimID + '"></canvas>');
 
 			var granimInstance = new Granim({
-				element: '#'+granimID,
+				element: '#' + granimID,
 				name: 'basic-gradient',
 				direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
 				opacity: [1, 1],
 				isPausedWhenNotInView: true,
-				states : {
+				states: {
 					"default-state": {
 						gradients: colours
 					}
@@ -416,48 +416,46 @@ License: https://themeforest.net/licenses/standard
 
 	// [6. Masonry]
 	function malat_masonryLayout() {
-		if ($('.isotope-container').length > 0) {
-			var $isotopeContainer = $('.isotope-container');
-			var $columnWidth = $isotopeContainer.data('column-width');
 
-			if($columnWidth == null){
-				var $columnWidth = '.isotope-item';
-			}
+		var $isotopeContainer = $('.isotope-container');
 
-			$isotopeContainer.isotope({
-				filter: '*',
-				animationEngine: 'best-available',
-				resizable: false,
-				itemSelector : '.isotope-item',
-				masonry: {
-					columnWidth: $columnWidth
-				},
-				animationOptions: {
-					duration: 750,
-					easing: 'linear',
-					queue: false
-				}
-			});
+		// Container yoksa hiç uðraþma
+		if ($isotopeContainer.length === 0) return;
 
-			// layout Isotope after each image loads
-			$isotopeContainer.imagesLoaded().progress( function() {
-				$isotopeContainer.isotope('layout');
-			});
-		}
+		var columnWidth = $isotopeContainer.data('column-width');
+		if (!columnWidth) columnWidth = '.isotope-item';
 
-		$('nav.isotope-filter ul a').on('click', function() {
-			var selector = $(this).attr('data-filter');
-			$isotopeContainer.isotope({ filter: selector });
-			$('nav.isotope-filter ul a').removeClass('active');
-			$(this).addClass('active');
-			return false;
+		// Isotope init
+		$isotopeContainer.isotope({
+			filter: '*',
+			itemSelector: '.isotope-item',
+			masonry: {
+				columnWidth: columnWidth
+			},
+			transitionDuration: '0.75s'
 		});
 
+		// Resimler yüklenince layout
+		$isotopeContainer.imagesLoaded().progress(function () {
+			$isotopeContainer.isotope('layout');
+		});
+
+		// Filter click (container varsa baðlanýr)
+		$('.isotope-filter ul').on('click', 'a', function (e) {
+			e.preventDefault(); // sayfa # yüzünden zýplamasýn
+
+			var selector = $(this).data('filter'); // data-filter okumak için daha temiz
+			$isotopeContainer.isotope({ filter: selector });
+
+			$('.isotope-filter ul a').removeClass('active');
+			$(this).addClass('active');
+		});
 	}
+
 
 	// [7. Lightbox]
 	function malat_lightbox() {
-		if(!$().featherlight) {
+		if (!$().featherlight) {
 			console.log('Featherlight: featherlight not defined.');
 			return true;
 		}
@@ -471,15 +469,15 @@ License: https://themeforest.net/licenses/standard
 			nextIcon: '<i class="fas fa-chevron-right"></i>'
 		});
 
-		$.featherlight.prototype.afterOpen = function() {
+		$.featherlight.prototype.afterOpen = function () {
 			$body.addClass('featherlight-open');
 		};
 
-		$.featherlight.prototype.afterContent = function() {
+		$.featherlight.prototype.afterContent = function () {
 			var title = this.$currentTarget.attr('data-title');
 			var text = this.$currentTarget.attr('data-text');
 
-			if( !title && !text )
+			if (!title && !text)
 				return;
 
 			this.$instance.find('.caption').remove();
@@ -487,18 +485,18 @@ License: https://themeforest.net/licenses/standard
 			var title = title ? '<h4 class="title-gallery">' + title + '</h4>' : '',
 				text = text ? '<p class="text-gallery">' + text + '</p>' : '';
 
-			$('<div class="caption">').html( title + text ).appendTo(this.$instance.find('.featherlight-content'));
+			$('<div class="caption">').html(title + text).appendTo(this.$instance.find('.featherlight-content'));
 		};
 
-		$.featherlight.prototype.afterClose = function() {
+		$.featherlight.prototype.afterClose = function () {
 			$body.removeClass('featherlight-open');
 		};
 
 		$('a.open-popup-link').featherlight({
 			targetAttr: 'href',
 			variant: 'featherlight-popup',
-			afterOpen: function() {
-				if( $navToggle.hasClass('open') ){
+			afterOpen: function () {
+				if ($navToggle.hasClass('open')) {
 					$navToggle.trigger('click');
 				}
 			}
@@ -509,9 +507,9 @@ License: https://themeforest.net/licenses/standard
 	function malat_slider() {
 		var $slider = $('.slider');
 
-		if($slider.length > 0){
+		if ($slider.length > 0) {
 
-			if( !$slider.hasClass('slick-initialized') ){
+			if (!$slider.hasClass('slick-initialized')) {
 				$slider.slick({
 					slidesToShow: 1,
 					infinite: true,
@@ -520,19 +518,19 @@ License: https://themeforest.net/licenses/standard
 				});
 			}
 
-			if( 1199 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-xl') ){
+			if (1199 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-xl')) {
 				$slider.slick('unslick');
 			}
 
-			if( 991 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-lg') ){
+			if (991 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-lg')) {
 				$slider.slick('unslick');
 			}
 
-			if( 767 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-md') ){
+			if (767 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-md')) {
 				$slider.slick('unslick');
 			}
 
-			if( 575 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-sm') ){
+			if (575 >= getWindowWidth() && $slider.hasClass('slick-initialized') && $slider.hasClass('slick-destroy-sm')) {
 				$slider.slick('unslick');
 			}
 
@@ -542,26 +540,26 @@ License: https://themeforest.net/licenses/standard
 	// [9. Mailchimp]
 	function malat_mailchimp() {
 		var subscribeForm = $('.subscribe-form');
-		if( subscribeForm.length < 1 ){ return true; }
+		if (subscribeForm.length < 1) { return true; }
 
-		subscribeForm.each( function(){
+		subscribeForm.each(function () {
 			var el = $(this),
 				elResult = el.find('.subscribe-form-result');
 
 			el.find('form').validate({
-				submitHandler: function(form) {
-					elResult.fadeOut( 500 );
+				submitHandler: function (form) {
+					elResult.fadeOut(500);
 
 					$(form).ajaxSubmit({
 						target: elResult,
 						dataType: 'json',
 						resetForm: true,
-						success: function( data ) {
-							elResult.html( data.message ).fadeIn( 500 );
-							if( data.alert != 'error' ) {
+						success: function (data) {
+							elResult.html(data.message).fadeIn(500);
+							if (data.alert != 'error') {
 								$(form).clearForm();
-								setTimeout(function(){
-									elResult.fadeOut( 500 );
+								setTimeout(function () {
+									elResult.fadeOut(500);
 								}, 5000);
 							};
 						}
@@ -575,25 +573,25 @@ License: https://themeforest.net/licenses/standard
 	// [10. Contact Form]
 	function malat_contactForm() {
 		var contactForm = $('.contact-form:not(.no-ajax)');
-		if( contactForm.length < 1 ){ return true; }
+		if (contactForm.length < 1) { return true; }
 
-		contactForm.each( function(){
+		contactForm.each(function () {
 			var el = $(this),
 				elResult = el.find('.contact-form-result');
 
 			el.find('form').validate({
-				submitHandler: function(form) {
-					elResult.fadeOut( 500 );
+				submitHandler: function (form) {
+					elResult.fadeOut(500);
 
 					$(form).ajaxSubmit({
 						target: elResult,
 						dataType: 'json',
-						success: function( data ) {
-							elResult.html( data.message ).fadeIn( 500 );
-							if( data.alert != 'error' ) {
+						success: function (data) {
+							elResult.html(data.message).fadeIn(500);
+							if (data.alert != 'error') {
 								$(form).clearForm();
-								setTimeout(function(){
-									elResult.fadeOut( 500 );
+								setTimeout(function () {
+									elResult.fadeOut(500);
 								}, 5000);
 							};
 						}
@@ -608,12 +606,12 @@ License: https://themeforest.net/licenses/standard
 	function malat_plugins() {
 
 		// Botostrap Tootltips
-        $('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
 
-        // Bootstrap Popovers
-        $('[data-toggle="popover"]').popover();
+		// Bootstrap Popovers
+		$('[data-toggle="popover"]').popover();
 
-		if( $('#typed').length > 0 ){
+		if ($('#typed').length > 0) {
 			var typed = new Typed('#typed', {
 				stringsElement: '#typed-strings',
 				typeSpeed: 40,
@@ -624,13 +622,13 @@ License: https://themeforest.net/licenses/standard
 	}
 
 	// window load function
-	$(window).on('load', function() {
+	$(window).on('load', function () {
 		malat_preloader();
 		malat_spyscroll();
 	});
 
 	// document.ready function
-	$(document).ready(function() {
+	$(document).ready(function () {
 		malat_navigation();
 		malat_autoHideMobileNavigation();
 		malat_spyscroll();
@@ -645,7 +643,7 @@ License: https://themeforest.net/licenses/standard
 	});
 
 	// window.resize function
-	$(window).on('resize', function() {
+	$(window).on('resize', function () {
 		malat_responsiveNavigation();
 		malat_autoHideMobileNavigation();
 		malat_spyscroll();
@@ -656,7 +654,7 @@ License: https://themeforest.net/licenses/standard
 	});
 
 	// window.scroll function
-	$(window).on('scroll', function(){
+	$(window).on('scroll', function () {
 		malat_backToTop();
 	});
 

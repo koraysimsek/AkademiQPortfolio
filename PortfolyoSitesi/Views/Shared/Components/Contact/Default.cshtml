@@ -1,95 +1,69 @@
 ﻿@model List<PortfolyoSitesi.Data.Contact>
 
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <section id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 mx-lg-auto">
-				<div class="row mb-8">
-					<div class="col-lg-8 mx-lg-auto text-center">
-						<div class="section-title h2 mb-3">
-							<h2 class="mb-0">Contact</h2>
-							<span class="title-letter">C</span>
-						</div>
-						<p class="text-muted">@Model[0].Description</p>
-					</div>
-				</div>
-				<div class="row mb-5 g-4">
-					<div class="col-md-4">
-						<div class="feature-block text-center">
-							<div class="feature-icon mx-auto mb-3">
-								<i class="ti-mobile"></i>
-							</div>
-							<p class="mb-0">@Model[0].Phone</p>
-						</div>
-					</div>
+    <div class="section-title">
+        <h2>İletişime <span>Geçin</span></h2>
+        <div class="underline"></div>
+        <p>@Model[0].Description</p>
+    </div>
 
-					<div class="col-md-4">
-						<div class="feature-block text-center">
-							<div class="feature-icon mx-auto mb-3">
-								<i class="ti-location-pin"></i>
-							</div>
-							<p class="mb-0">@Model[0].Address</p>
-						</div>
-					</div>
+    <div class="contact-content">
+        <div class="contact-info">
+            <h3>İletişim Bilgileri</h3>
+            @foreach (var item in Model)
+            {
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-item-info">
+                        <h4>Adres</h4>
+                        <p>@item.Address</p>
+                    </div>
+                </div>
 
-					<div class="col-md-4">
-						<div class="feature-block text-center">
-							<div class="feature-icon mx-auto mb-3">
-								<i class="ti-email"></i>
-							</div>
-							<p class="mb-0">
-								<a href="mailto:@Model[0].Email" class="text-primary">@Model[0].Email</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="contact-form no-ajax">
-					<form class="mb-0" id="cf" name="cf" action="/Default/SendMessage" method="post" autocomplete="off">
-						<div class="row g-3">
-							<div class="form-process"></div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-item-info">
+                        <h4>Telefon</h4>
+                        <p>@item.Phone</p>
+                    </div>
+                </div>
 
-							<div class="col-12 col-md-6">
-								<input type="text" id="cf-name" name="NameSurname" placeholder="Name" class="form-control required">
-							</div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-item-info">
+                        <h4>E-posta</h4>
+                        <p>@item.Email</p>
+                    </div>
+                </div>
+            }
+        </div>
 
-							<div class="col-12 col-md-6">
-								<input type="email" id="cf-email" name="Email" placeholder="Email" class="form-control required">
-							</div>
-
-							<div class="col-12">
-								<input type="text" id="cf-subject" name="Subject" placeholder="Subject (Optional)" class="form-control">
-							</div>
-
-							<div class="col-12">
-								<textarea name="MessageContent" id="cf-message" placeholder="Message" class="form-control required" rows="6"></textarea>
-							</div>
-
-							<div class="col-12 d-none">
-								<input type="text" id="cf-botcheck" name="cf-botcheck" value="" class="form-control" />
-							</div>
-
-							<div class="col-12 text-center mt-4">
-								<button class="btn btn-primary px-5" type="submit" id="cf-submit" name="cf-submit" onclick="messageSuccess()">Send Message</button>
-							</div>
-
-							<script>
-								function messageSuccess() {
-									alert("Your message has been sent successfully! Thanks.");
-									setTimeout(function () {
-									location.reload();
-								}, 1500);
-								}
-							</script>
-
-						</div>
-					</form>
-					<div class="contact-form-result text-center"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="contact-form">
+            <h3>Bir Mesaj Gönderin</h3>
+            <form action="/Default/SendMessage" method="post">
+                <div class="form-group">
+                    <label for="name">Ad Soyad</label>
+                    <input type="text" id="name" name="NameSurname" placeholder="Adınız" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="Email" placeholder="e-posta@adresiniz.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Konu</label>
+                    <input type="text" id="subject" name="Subject" placeholder="Mesaj konusu" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesaj</label>
+                    <textarea id="message" name="MessageContent" placeholder="Nasıl yardımcı olabilirim?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" onclick="alert('Mesaj başarıyla gönderildi!')">Mesaj Gönder</button>
+            </form>
+        </div>
+    </div>
 </section>
