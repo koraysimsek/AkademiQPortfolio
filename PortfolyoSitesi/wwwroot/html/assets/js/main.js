@@ -659,3 +659,43 @@ License: https://themeforest.net/licenses/standard
 	});
 
 })(jQuery);
+
+/* Custom Scroll To Top */
+(function($) {
+    "use strict";
+    var $scrollTop = .scroll-top;
+    
+    .on('scroll', function() {
+        if (.scrollTop() > 300) {
+            $scrollTop.addClass('active');
+        } else {
+            $scrollTop.removeClass('active');
+        }
+    });
+
+    $scrollTop.on('click', function(e) {
+        e.preventDefault();
+        html, body.animate({scrollTop: 0}, 800);
+        return false;
+    });
+})(jQuery);
+
+/* Custom Scroll To Top */
+(function($) {
+    "use strict";
+    var $scrollTop = $('.scroll-top');
+    
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) {
+            $scrollTop.addClass('active');
+        } else {
+            $scrollTop.removeClass('active');
+        }
+    });
+
+    $scrollTop.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 800);
+        return false;
+    });
+})(jQuery);
