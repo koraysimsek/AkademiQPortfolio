@@ -47,6 +47,9 @@
                                 Title
                             </th>
                             <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                                Project Link
+                            </th>
+                            <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                                 Image
                             </th>
                             <th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
@@ -78,9 +81,13 @@
                                     @item.Title
                                 </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                    @item.ProjectLink
+                                </td>
+
+                                <td class="px-6 py-4">
                                     <img src="@item.ImageUrl"
-                                         class="w-20 h-12 rounded-lg object-cover shadow-sm"
+                                         class="w-10 h-10 rounded-full object-cover border"
                                          alt="Project Image" />
                                 </td>
 

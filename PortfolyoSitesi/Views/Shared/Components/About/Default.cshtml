@@ -17,10 +17,10 @@
                 <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" : item.ImageUrl)" alt="@item.NameSurname">
             </div>
             <div class="about-text">
-                <h3>@item.Title</h3>
+                <h3>@item.NameSurname</h3>
                 <p>@item.Description</p>
                 <div class="info-grid">
-                    <div class="info-item"><strong>İsim:</strong> @item.NameSurname</div>
+                    <div class="info-item"><strong>Ünvan:</strong> @item.Title</div>
                     <div class="info-item"><strong>Eğitim:</strong> @item.University - @item.Section</div>
                     <div class="info-item"><strong>Deneyim:</strong> @item.StartYear - @item.EndYear</div>
                 </div>
