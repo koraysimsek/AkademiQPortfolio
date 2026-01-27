@@ -638,6 +638,32 @@ footer {
     border-top: 1px solid rgba(138, 92, 246, 0.2);
 }
 
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(138, 92, 246, 0.1);
+    border: 1px solid rgba(138, 92, 246, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    margin: 0 10px;
+    transition: all 0.3s;
+    font-size: 18px;
+}
+
+.footer-social a:hover {
+    background: #8a5cf6;
+    border-color: #8a5cf6;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(138, 92, 246, 0.3);
+}
+
 footer p {
     color: #9ca3af;
 }
