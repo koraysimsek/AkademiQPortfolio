@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PortfolyoSitesi.Data;
 
 namespace PortfolyoSitesi.ViewComponents
@@ -13,7 +14,7 @@ namespace PortfolyoSitesi.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var values = _portfolyodbContext.Projects.ToList();
+            var values = _portfolyodbContext.Projects.Include(x => x.Category).ToList();
             return View(values);
         }
     }

@@ -7,7 +7,7 @@
 <div class="projects-grid isotope-container row">
     @foreach (var item in Model)
     {
-        <div class="isotope-item col-md-6 col-lg-4 p-3 filter-@item.Category?.CategoryName?.Replace(" ", "-")">
+        <div class="isotope-item col-md-6 col-lg-4 p-3 cat-@item.CategoryId">
             <div class="project-card" style="margin: 0;">
                 <div class="project-image">
                     @if (!string.IsNullOrEmpty(item.ImageUrl))
@@ -44,4 +44,43 @@
         </div>
     }
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Portfolio Filter Script Initializing...");
+        
+        // Wait a bit for the main script to finish
+        setTimeout(function() {
+            var $grid = $('.isotope-container');
+            if ($grid.length === 0) {
+                console.error("Isotope container not found!");
+                return;
+            }
+
+            // Ensure Isotope is initialized
+            if (!$grid.data('isotope')) {
+                console.log("Initializing Isotope manually...");
+                $grid.isotope({
+                    itemSelector: '.isotope-item',
+                    layoutMode: 'masonry'
+                });
+            }
+
+            // Bind filter click
+            $('.isotope-filter').on('click', 'a', function(e) {
+                e.preventDefault();
+                var filterValue = $(this).attr('data-filter');
+                console.log("Filtering by: " + filterValue);
+                
+                $grid.isotope({ filter: filterValue });
+                
+                // Active class update
+                $('.isotope-filter a').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            console.log("Portfolio Filter Script Ready.");
+        }, 1000);
+    });
+</script>
 </section>

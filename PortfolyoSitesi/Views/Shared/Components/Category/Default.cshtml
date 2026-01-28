@@ -14,13 +14,13 @@
     <div class="projects-filter isotope-filter">
         <ul>
             <li>
-                <a href="#" class="active" data-filter="*">Hepsi</a>
+                <a href="javascript:void(0)" class="active" data-filter="*">Hepsi</a>
             </li>
 
             @foreach (var item in Model)
             {
                 <li>
-                    <a href="#" data-filter=".filter-@item.CategoryName.Replace(" ", "-")">
+                    <a href="javascript:void(0)" data-filter=".cat-@item.CategoryId">
                         @item.CategoryName
                     </a>
                 </li>
