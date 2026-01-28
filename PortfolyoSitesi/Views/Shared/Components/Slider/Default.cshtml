@@ -4,11 +4,11 @@
     Layout = null;
 }
 
-<section id="home" class="slider-wrapper" style="height: 100vh; padding: 0;">
-    <div class="slider" data-slick='{"dots":true, "arrows":true}' style="height: 100%;">
+<section id="home" class="slider-wrapper" style="height: 100vh; padding: 0; width: 100%; margin: 0; overflow: hidden;">
+    <div class="slider" data-slick='{"dots":true, "arrows":true}' style="height: 100%; width: 100%; margin: 0; padding: 0;">
         @foreach (var item in Model)
         {
-            <div class="slider-item" style="background-image: url('@(string.IsNullOrEmpty(item.ProfileImageUrl) ? "#" : item.ProfileImageUrl)'); background-size: cover; background-position: center; min-height: 100vh; display: flex !important; align-items: center; justify-content: center;">
+            <div class="slider-item" style="background-image: url('@(string.IsNullOrEmpty(item.ProfileImageUrl) ? "#" : item.ProfileImageUrl)'); background-size: cover; background-position: center; min-height: 100vh; width: 100vw; display: flex !important; align-items: center; justify-content: center;">
                 <div class="slider-content">
                     <h1>@item.Title</h1>
                     <p>@item.NameSurname</p>

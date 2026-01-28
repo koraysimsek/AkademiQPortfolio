@@ -76,7 +76,9 @@ nav {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
-    padding: 100px 50px 50px;
+    padding: 0;
+    width: 100%;
+    margin: 0;
 }
 
 .slider-content {
@@ -139,8 +141,9 @@ nav {
 
 /* Slider Item */
 .slider-item {
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
+    width: 100%;
 }
 
 /* Section Common Styles */
