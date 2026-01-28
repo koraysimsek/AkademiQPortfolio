@@ -37,6 +37,7 @@ Bu proje, İnteraktif bir portföy web sitesidir. Kişisel becerilerimi, projele
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/f26c4402-2c04-480d-933c-5bfa92690aeb" />
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/88c9c58f-20c7-445a-8307-b89e30fbde26" />
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/29160e02-6d78-421b-b88c-b4b575357b55" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d2b61b8e-4249-4d4a-a478-cb1395af1365" />
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/4ae2469f-6d1f-4f96-8833-654804d43694" />
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/9c460ed4-467a-405b-8537-ad8e8672dd8d" />
 
